@@ -17,6 +17,8 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'haml'
+gem 'twitter'
+gem 'json'
 
 group :test do
   gem 'faker'
