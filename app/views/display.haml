@@ -2,3 +2,5 @@
 %ol
   - @tweets.reverse.each do |tweet|
     %li= tweet.text
+
+%a{href: '/sign_out'} Log Out

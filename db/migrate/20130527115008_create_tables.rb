@@ -8,7 +8,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :twitter_users do |t|
-      t.string :username
+      t.string :username, :oauth_token, :oauth_token_secret
 
       t.timestamps
     end

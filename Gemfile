@@ -18,7 +18,11 @@ gem 'rake'
 gem 'shotgun'
 gem 'haml'
 gem 'twitter'
+gem 'oauth'
 gem 'json'
+
+gem 'sidekiq'
+gem 'redis'
 
 group :test do
   gem 'faker'

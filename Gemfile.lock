@@ -15,6 +15,9 @@ GEM
     arel (3.0.2)
     backports (3.3.1)
     builder (3.0.4)
+    celluloid (0.14.0)
+      timers (>= 1.0.0)
+    connection_pool (1.0.0)
     daemons (1.1.9)
     diff-lcs (1.2.4)
     eventmachine (1.0.3)
@@ -25,9 +28,10 @@ GEM
     haml (4.0.3)
       tilt
     i18n (0.6.4)
-    json (1.7.7)
+    json (1.8.0)
     multi_json (1.7.4)
     multipart-post (1.2.0)
+    oauth (0.4.7)
     pg (0.15.1)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -35,6 +39,9 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.0.4)
+    redis (3.0.4)
+    redis-namespace (1.3.0)
+      redis (~> 3.0.0)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -45,6 +52,12 @@ GEM
     rspec-mocks (2.13.1)
     shotgun (0.9)
       rack (>= 1.0)
+    sidekiq (2.12.0)
+      celluloid (>= 0.14.0)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0)
+      redis-namespace
     simple_oauth (0.2.0)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
@@ -62,6 +75,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.4.1)
+    timers (1.1.0)
     twitter (4.6.2)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
@@ -77,10 +91,13 @@ DEPENDENCIES
   faker
   haml
   json
+  oauth
   pg
   rake
+  redis
   rspec
   shotgun
+  sidekiq
   sinatra
   sinatra-contrib
   thin

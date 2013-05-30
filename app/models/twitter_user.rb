@@ -29,4 +29,9 @@ class TwitterUser < ActiveRecord::Base
       true
     end
   end
+
+  def tweet(status)
+    tweet = tweets.create!(:text => status)
+    TweetWorker.perform_async(tweet.id)
+  end
 end

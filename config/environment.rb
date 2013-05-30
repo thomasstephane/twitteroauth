@@ -22,6 +22,12 @@ require 'erb'
 require 'haml'
 
 require 'twitter'
+require "oauth"
+
+require 'sidekiq'
+require 'redis'
+
+
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -35,9 +41,3 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-Twitter.configure do |config|
-  config.consumer_key = "OvdZ4GxfX7bVBuuTWhcsUw"
-  config.consumer_secret = "yp2wX7TaC8I24II2uFxEfeAtnUsXuotp46N6EG7Do0A"
-  config.oauth_token = "935609690-ZzHhuXB7fm6XGWJ3jexGNy8HXrkHzt4ZLv0a8fx3"
-  config.oauth_token_secret = "SG1BeFhGcNVIHSoTtfeqbJKEbI0YiU5FGdQVgorKuo"
-end
