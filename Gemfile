@@ -23,6 +23,7 @@ gem 'json'
 
 gem 'sidekiq'
 gem 'redis'
+gem 'sidekiq-failures'
 
 group :test do
   gem 'faker'

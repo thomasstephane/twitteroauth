@@ -20,3 +20,7 @@ def request_token
   end
   session[:request_token]
 end
+
+def current_user
+  @user = TwitterUser.find(session[:user_id]) if session[:user_id]
+end

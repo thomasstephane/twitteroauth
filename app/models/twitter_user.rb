@@ -29,9 +29,16 @@ class TwitterUser < ActiveRecord::Base
       true
     end
   end
-
-  def tweet(status)
-    tweet = tweets.create!(:text => status)
-    TweetWorker.perform_async(tweet.id)
+  
+  def tweet(status, delay = 0)
+    tweet = tweets.create!(:status => status)
+    job_id = nil
+    if delay == 0
+      job_id = TweetWorker.perform_async(tweet.id)
+    else
+      job_id = TweetWorker.perform_at(delay.minute.from_now, tweet.id)
+    end
+    tweet.update_attributes(:job_id => job_id)
+    job_id
   end
 end

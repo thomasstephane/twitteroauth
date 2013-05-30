@@ -18,4 +18,11 @@ module TwitterClient
     return false if working.find { |worker, info| info["payload"]["jid"] == jid }
     true
   end
+
+  
+  def recent_tweet?(status)
+    recent_tweets = current_user.client.user_timeline(current_user.username)[0..4]   
+    recent_tweets.map { |tweet| tweet.text }.include? status
+  end
+
 end
